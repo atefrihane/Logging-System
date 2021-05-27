@@ -53,6 +53,7 @@ export default {
   mounted() {
     if (this.user.logs.length > 0) {
       this.hasStarted = true;
+      
       this.start_date = this.user.logs[0].start_date;
       this.end_date = this.user.logs[0].end_date;
     }
@@ -77,6 +78,7 @@ export default {
         .then((response) => {
           this.hasStarted = true;
           this.start_date = response.data.log.start_date;
+          this.user.logs.push(response.data.log)
           Swal.fire("Success!", "You have started your shift!", "success");
         })
         .catch(function (error) {

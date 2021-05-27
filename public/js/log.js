@@ -217,6 +217,9 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this.hasStarted = true;
         _this.start_date = response.data.log.start_date;
+
+        _this.user.logs.push(response.data.log);
+
         Swal.fire("Success!", "You have started your shift!", "success");
       })["catch"](function (error) {
         console.log(error);
